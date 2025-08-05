@@ -16,12 +16,14 @@ const FooterLayout = () => {
       <div className="space-y-5 md:space-y-0 flex md:flex-row flex-col items-start justify-start md:justify-center md:items-center w-full md:w-auto px-[3%] md:px-0 pb-8 md:pb-0">
         <ul className="flex flex-row w-full justify-between md:justify-start md:gap-10 pr-8 md:border-r border-[#5B5C5D]">
           {HeaderPaths.map((item, index) => (
-            <li key={index}>
-              <Link href={item.path}>
-                <Button variant={"link_secondary"} size={"link"}>
-                  {item.name}
-                </Button>
-              </Link>
+             <li key={index} className="relative">
+              <Button
+                variant={"link_secondary"}
+                size={"link"}
+                className="border-[#F0F0F0] active:border-[#F0F0F0]"
+              >
+                <Link href={item.path}>{item.name}</Link>
+              </Button>
             </li>
           ))}
         </ul>

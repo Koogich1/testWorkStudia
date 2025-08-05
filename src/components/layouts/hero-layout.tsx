@@ -27,7 +27,7 @@ const HeroLayout = () => {
 
   return (
     <div 
-      className="flex flex-col min-h-[90vw] sm:min-h-0 sm:h-[650px] lg:h-[750px] xl:h-[850px] justify-center bg-[#F0F0F0] items-center px-[3%] relative mt-[22vw]"
+      className="flex flex-col min-h-[90vw] sm:min-h-0 sm:h-[650px] lg:h-[750px] xl:h-[850px] justify-center bg-[#F0F0F0] items-center px-[3%] relative"
     >
       {imgUrl && (
         <Image

@@ -33,7 +33,7 @@ export const ArticleRecommendLayout = ({
   );
 
   return (
-    <div className="pt-25 text-white pb-50">
+    <div className="pt-25 text-white pb-15">
       <h3 className="px-[3%] text-[32px] font-[700]">We also recommend</h3>
       <div className="flex flex-col">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 px-[3%] pt-13 gap-y-9">

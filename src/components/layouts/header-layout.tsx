@@ -15,20 +15,20 @@ export const HeaderLayout = () => {
       <div className="hidden md:flex">
         <ul className="flex gap-10 pr-8 border-r border-[#D6D9DC]">
           {HeaderPaths.map((item, index) => (
-            <li key={index}>
-              <Link href={item.path}>
-                <Button variant={"link"} size={"link"} className="border-[#F0F0F0] active:border-[#F0F0F0]">
-                  {item.name}
-                </Button>
-              </Link>
+            <li key={index} className="relative">
+              <Button
+                variant={"link"}
+                size={"link"}
+                className="border-[#F0F0F0] active:border-[#F0F0F0]"
+              >
+                <Link href={item.path}>{item.name}</Link>
+              </Button>
             </li>
           ))}
         </ul>
         <p className="pl-8">{PhoneNumber}</p>
       </div>
-      <div className="flex md:hidden">
-          ...
-      </div>
+      <div className="flex md:hidden">...</div>
     </nav>
   );
 };

@@ -15,7 +15,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
   return (
     /** TODO, НЕ ЗАБЫТЬ ЗАМЕНИТЬ МОК ДАННЫЕ */
 
-    <div className="px-[3%] text-white pt-10 lg:pt-0">
+    <div className="px-[3%] text-white lg:pt-0 text-[14px] md:text-[16px]">
       <div className="py-10 border-b border-[#5B5C5D]">
         <ul className="flex gap-5 items-center text-[16px]">
           <li>Projects</li>
@@ -26,7 +26,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
         </ul>
       </div>
 
-      <div className="pt-30 space-y-30 border-b border-[#5B5C5D] pb-17">
+      <div className="pt-30 space-y-30 border-b border-[#5B5C5D]">
         {(() => {
           const elements = [];
           for (let i = 0; i < article.content.length; i++) {
@@ -183,7 +183,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
                           return (
                             <div className="flex flex-col space-y-8">
                               <h3 className="text-[32px]">{heading}</h3>
-                              <p className="text-[16px]">{p1}</p>
+                              <p className="text-[14px] md:text-[16px]">{p1}</p>
                             </div>
                           );
                         })()}

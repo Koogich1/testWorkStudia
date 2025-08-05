@@ -31,7 +31,7 @@ const Page = () => {
   
 
   return (
-    <main className='pt-23 bg-[#181818] min-h-[90vh]'>
+    <main className='pt-21 bg-[#181818] min-h-[90vh]'>
       <ArticleHeroLayout article={data.article} />
       <TextGridLayout article={data.article} />
       <ArticleRecommendLayout choseArticleId={articleId as string} />
