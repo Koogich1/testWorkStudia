@@ -7,19 +7,19 @@ interface ArticleHeroProps {
 }
 export const ArticleHeroLayout = ({article}: ArticleHeroProps) => {
   return (
-    <div className="flex items-center text-white justify-center h-[38.41vw] px-[3%]">
+    <div className="flex items-center flex-col lg:flex-row text-white justify-center h-[42vw] lg:h-[38.41vw] px-[3%]">
       <Image
         src={`https://r810983k-1337.euw.devtunnels.ms${article?.Hero.background.url}`}
         alt={article.Hero.background.name}
-        className="w-full object-cover absolute top-21.5 z-[0] h-[38.41vw]"
+        className="w-full object-cover lg:absolute top-21.5 z-[0] h-[38.41vw]"
         width={1920}
         height={782}
       />
-      <div className="flex w-full justify-between items-center">
-        <h1 className="flex justify-between z-[10] font-[700] text-[2.6vw] w-[53%]">
+      <div className="flex w-full justify-center text-center lg:text-start lg:justify-between items-center pb-6">
+        <h1 className="justify-between z-[10] absolute lg:static hidden md:block font-[700] text-[48px] w-[53%] top-[13vw]">
           {article?.Hero.title}
         </h1>
-        <p className="w-[28%] mr-36 text-[0.9vw] z-10 font-[400]">
+        <p className="lg:w-[40%] pt-10 lg:pt-0 text-start lg:mr-24 xl:w-[30%] 2xl:w-[28%] xl:mr-36 text-[16px] z-10 font-[400]">
           {article.Hero.description}
         </p>
       </div>

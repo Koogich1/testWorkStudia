@@ -10,14 +10,14 @@ interface CardProps {
 
 export const Card = ({ imgUrl, Src, children }: CardProps) => {
   return (
-    <Link href={Src} className="card p-2 block hover:scale-[102%] hover:shadow-lg transition-all">
+    <Link href={Src} className="card p-2 block hover:scale-[102%] hover:shadow-lg transition-all ">
       {imgUrl && (
         <Image
           src={`https://r810983k-1337.euw.devtunnels.ms${imgUrl}`}
           alt={imgUrl}
-          width={1200}
-          height={600}
-          className="card-img mb-2 h-[360px] min-h-[208px] object-cover"
+          width={560}
+          height={320}
+          className="card-img mb-2 object-cover w-full h-[320px]"
         />
       )}
       {children}

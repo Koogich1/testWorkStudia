@@ -1,46 +1,42 @@
-"use client";
-
+import React from "react";
 import {
   MainPageArticleData,
   GET_ARTICLES,
 } from "@/graphql/getArticlesMainPage";
 import { useQuery } from "@apollo/client";
 import client from "@/lib/apolloClient";
-import React from "react";
-import Button from "@ui/button/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@ui/card/card";
-import { ArticleTagsLayout } from "./article_tags_layout";
-import { useState } from "react";
 
-const ArticleLayout = () => {
-  const [selectedTag, setSelectedTag] = useState<string | null>();
+interface ArticleRecommendProps {
+  choseArticleId: string;
+}
 
+export const ArticleRecommendLayout = ({
+  choseArticleId,
+}: ArticleRecommendProps) => {
   const { data, loading, error } = useQuery<
     MainPageArticleData,
-    { filters: any, status: string }
+    { filters: any; status: string }
   >(GET_ARTICLES, {
     variables: {
-      filters: {
-        ...(selectedTag && {
-          tags: {
-            system_title: { eq: selectedTag },
-          },
-        }),
-      },
+      filters: {},
       status: "PUBLISHED",
     },
     client,
   });
+
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div className="py-30">Ошибка: {error.message}</div>;
 
-  const articles = data?.articles;
+  const articles = data?.articles?.filter(
+    (article) => article.documentId !== choseArticleId
+  );
 
   return (
-    <div className="bg-[#181818] pt-25 text-white pb-50">
+    <div className="pt-25 text-white pb-50">
+      <h3 className="px-[3%] text-[32px] font-[700]">We also recommend</h3>
       <div className="flex flex-col">
-        <ArticleTagsLayout onSelectTag={setSelectedTag} selectedTag={selectedTag ? selectedTag : "all"}/>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3  px-[3%] pt-13 gap-y-9">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 px-[3%] pt-13 gap-y-9">
           {articles?.map((article, index) => (
             <Card
               imgUrl={article.Hero.background.url}
@@ -58,5 +54,3 @@ const ArticleLayout = () => {
     </div>
   );
 };
-
-export default ArticleLayout;

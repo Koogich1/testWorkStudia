@@ -7,6 +7,7 @@ import client from "@/lib/apolloClient";
 import { ArticleByIdData, GET_ARTICLE_BY_ID } from "@/graphql/getArticleById";
 import { useQuery } from "@apollo/client";
 import { useParams } from "next/navigation";
+import { ArticleRecommendLayout } from "@/components/layouts/articleByIdLayouts/article_recommend_layout";
 
 const Page = () => {
   const { articleId } = useParams();
@@ -30,10 +31,11 @@ const Page = () => {
   
 
   return (
-    <div className='pt-22 bg-black'>
+    <main className='pt-23 bg-[#181818] min-h-[90vh]'>
       <ArticleHeroLayout article={data.article} />
       <TextGridLayout article={data.article} />
-    </div>
+      <ArticleRecommendLayout choseArticleId={articleId as string} />
+    </main>
   );
 };
 

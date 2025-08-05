@@ -15,7 +15,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
   return (
     /** TODO, НЕ ЗАБЫТЬ ЗАМЕНИТЬ МОК ДАННЫЕ */
 
-    <div className="px-[3%] pb-20 text-white">
+    <div className="px-[3%] text-white pt-10 lg:pt-0">
       <div className="py-10 border-b border-[#5B5C5D]">
         <ul className="flex gap-5 items-center text-[16px]">
           <li>Projects</li>
@@ -25,27 +25,27 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
           <li className="opacity-50">Sustainable Design</li>
         </ul>
       </div>
-      <div className="pt-30 space-y-30">
+
+      <div className="pt-30 space-y-30 border-b border-[#5B5C5D] pb-17">
         {(() => {
           const elements = [];
           for (let i = 0; i < article.content.length; i++) {
             const item = article.content[i];
-
             if (isGridImage(item)) {
               const nextItem = article.content[i + 1];
               if (nextItem && isGridText(nextItem)) {
                 elements.push(
-                  <div key={i} className="flex justify-center gap-10 w-full">
-                    <div className="w-[60%]">
+                  <div key={i} className="flex flex-col sm:flex-row justify-center gap-10 w-full">
+                    <div className="w-full sm:w-[33%] sm:h-[350px] md:h-auto lg:w-[55%] 2xl:w-[60%]">
                       <Image
                         src={`https://r810983k-1337.euw.devtunnels.ms${item.image.url}`}
                         alt={item.image.name}
                         width={920}
                         height={540}
-                        className="w-full"
+                        className="w-full object-cover h-full"
                       />
                     </div>
-                    <div className="w-2/5 px-6">
+                    <div className="sm:w-[67%] lg:w-[45%] 2xl:w-2/5 lg:px-5 2xl:px-6">
                       {(() => {
                         const cleanText = nextItem.text
                           .split("")
@@ -56,10 +56,10 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
                         const p2 = cleanText.slice(330);
 
                         return (
-                          <div className="flex flex-col space-y-8">
-                            <h3 className="text-[1.7vw]">{heading}</h3>
-                            <p className="text-[0.9vw]">{p1}</p>
-                            <p className="text-[0.9vw]">{p2}</p>
+                          <div className="flex flex-col 2xl:space-y-8 space-y-5">
+                            <h3 className="text-[30px] 2xl:text-[32px]">{heading}</h3>
+                            <p className="text-[14px] 2xl:text-[16px]">{p1}</p>
+                            <p className="text-[14px] 2xltext-[16px]">{p2}</p>
                           </div>
                         );
                       })()}
@@ -94,8 +94,8 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
               const nextItem = article.content[i + 1];
               if (nextItem && isGridTextUnderImage(nextItem)) {
                 elements.push(
-                  <div key={i} className="flex justify-center gap-23 w-full">
-                    <div className="flex flex-col gap-10 w-[38%] border-b border-[#5B5C5D]">
+                  <div key={i} className="flex flex-col sm:flex-row justify-center gap-23 w-full">
+                    <div className="flex flex-col gap-10 md:w-full sm:w-[38%] sm:border-b sm:border-[#5B5C5D]">
                       {item.image && (
                         <Image
                           src={`https://r810983k-1337.euw.devtunnels.ms${item.image.url}`}
@@ -111,7 +111,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
                         </div>
                       )}
                     </div>
-                    <div className="flex flex-col gap-10 w-[62%]">
+                    <div className="flex flex-col gap-10 sm:w-[62%]">
                       {nextItem.image && (
                         <Image
                           src={`https://r810983k-1337.euw.devtunnels.ms${nextItem.image.url}`}
@@ -126,7 +126,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
                         />
                       )}
                       {nextItem.text && (
-                        <div className="w-[70%]">
+                        <div className="w-full sm:w-[70%]">
                           <h3>{nextItem.text}</h3>
                         </div>
                       )}
@@ -156,12 +156,9 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
               }
             } else if (isGridTextOverImage(item)) {
               elements.push(
-                <div key={i} className="flex gap-10 relative">
+                <div key={i} className="flex flex-col gap-10 relative">
                   <div
-                    className="absolute inset-0"
-                    style={{
-                      boxShadow: "inset 0 -100px 50px -20px rgba(0, 0, 0, 1)",
-                    }}
+                    className="absolute inset-0 sm:shadow-inset-bottom-100"
                   ></div>
                   {item.image && (
                     <Image
@@ -173,7 +170,7 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
                     />
                   )}
                   {item.text && (
-                    <div className="absolute bottom-10 left-10 w-1/3">
+                    <div className="sm:absolute sm:bottom-10 sm:left-10 sm:w-1/3">
                       <h3>
                         {(() => {
                           const cleanText = item.text
@@ -185,8 +182,8 @@ const TextGridLayout = ({ article }: ArticleGridProps) => {
 
                           return (
                             <div className="flex flex-col space-y-8">
-                              <h3 className="text-[1.7vw]">{heading}</h3>
-                              <p className="text-[0.9vw]">{p1}</p>
+                              <h3 className="text-[32px]">{heading}</h3>
+                              <p className="text-[16px]">{p1}</p>
                             </div>
                           );
                         })()}

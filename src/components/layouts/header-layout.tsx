@@ -12,7 +12,7 @@ export const HeaderLayout = () => {
           architecture{" "}
         </Link>
       </div>
-      <div className="flex">
+      <div className="hidden md:flex">
         <ul className="flex gap-10 pr-8 border-r border-[#D6D9DC]">
           {HeaderPaths.map((item, index) => (
             <li key={index}>
@@ -25,6 +25,9 @@ export const HeaderLayout = () => {
           ))}
         </ul>
         <p className="pl-8">{PhoneNumber}</p>
+      </div>
+      <div className="flex md:hidden">
+          ...
       </div>
     </nav>
   );

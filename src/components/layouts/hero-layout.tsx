@@ -26,20 +26,22 @@ const HeroLayout = () => {
   const foregroundUrl = data?.homePage?.hero?.foreground?.url || "";
 
   return (
-    <div className="flex flex-col h-[850px] bg- justify-center bg-[#F0F0F0] items-center px-[3%] relative">
+    <div 
+      className="flex flex-col min-h-[90vw] sm:min-h-0 sm:h-[650px] lg:h-[750px] xl:h-[850px] justify-center bg-[#F0F0F0] items-center px-[3%] relative mt-[22vw]"
+    >
       {imgUrl && (
         <Image
           src={`https://r810983k-1337.euw.devtunnels.ms${imgUrl}`}
           alt="Hero Text"
-          width={1000}
-          height={400}
-          className="w-full"
+          width={1812}
+          height={172}
+          className="w-full sm:pb-0"
         />
       )}
       <div className="w-full flex flex-col items-end justify-end">
         <div className="w-[45%] pt-20 pr-[9%] flex flex-col items-start justify-start">
-          <p className="text-[1vw]">{data?.homePage.hero.decritpion}</p>
-          <Button variant={"default"} className="h-[59px] mt-5">
+          <p className="text-[16px] hidden sm:block">{data?.homePage.hero.decritpion}</p>
+          <Button variant={"default"} className="h-[59px] sm:h-auto mt-5 hidden sm:block py-4">
             {data?.homePage.hero.action.label}
           </Button>
         </div>
@@ -48,9 +50,9 @@ const HeroLayout = () => {
         <Image
           src={`https://r810983k-1337.euw.devtunnels.ms${foregroundUrl}`}
           alt="Hero Image"
-          width={1920}
-          height={1080}
-          className="absolute w-[50vw] left-0 bottom-[-4.12vw]"
+          width={1056}
+          height={824}
+          className="absolute w-[80vw] bottom-[-6.7vw] 3xl:w-[50vw] 2xl:bottom-[-4.52vw] 2xl:w-[55vw] xl:bottom-[-5.75vw] sm:bottom-[-5.8vw] sm:w-[70vw] left-0"
         />
       )}
     </div>

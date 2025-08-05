@@ -30,8 +30,8 @@ export const ArticleTagsLayout = ({
   const tags = data?.tags;
 
   return (
-    <div>
-      <ul className="flex gap-2 items-center py-8 border-y border-[#5B5C5D] px-[3%] relative">
+    <div className="w-full overflow-x-hidden">
+      <ul className="flex gap-2 items-center py-8 border-y border-[#5B5C5D] px-[3%] relative whitespace-nowrap md:overflow-x-visible md:whitespace-normal">
         <li className="">
           <Button variant={"tabs"} onClick={() => onSelectTag(null)}  className={cn(
                 "all" === selectedTag ? "border-white" : "border-transparent"
