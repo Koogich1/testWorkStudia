@@ -50,7 +50,7 @@ const HeroLayout = () => {
           alt="Hero Image"
           width={1920}
           height={1080}
-          className="absolute w-[56.5%] left-0 bottom-[-95px]"
+          className="absolute w-[50vw] left-0 bottom-[-4.12vw]"
         />
       )}
     </div>
