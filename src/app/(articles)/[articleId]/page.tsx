@@ -1,7 +1,7 @@
 "use client";
 
 import { ArticleHeroLayout } from "@/components/layouts/articleByIdLayouts/article_hero_layout";
-import TextGridLayout from "@/components/layouts/articleByIdLayouts/text_grid_layout";
+import TextGridLayout from "@/components/layouts/articleByIdLayouts/article_text_grid_layout";
 import React from "react";
 import client from "@/lib/apolloClient";
 import { ArticleByIdData, GET_ARTICLE_BY_ID } from "@/graphql/getArticleById";
